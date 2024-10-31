@@ -1,0 +1,22 @@
+class Solution(object):
+    def maxNumberOfBalloons(self, text):
+        """
+        :type text: str
+        :rtype: int
+        """
+        c=0
+        needed={'b':1,'a':1,'l':2,'o':2,'n':1}
+        letter_count={}
+        for letter in text:
+            if letter in needed:
+                if letter in letter_count:
+                    letter_count[letter]+=1
+                else:
+                    letter_count[letter]=1
+        max_val = 999999999999999
+        for char, required in needed.items():
+            if char in letter_count:
+                max_val = min(max_val, letter_count[char]/required)
+            else:
+                return 0
+        return max_val
