@@ -5,12 +5,12 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        numlen = len(nums)
-
-        for i in range(numlen):
-            for j in range(numlen):
-                if i!=j:
-                    if nums[i] + nums[j] == target:
-                        return [i, j]
-
+        mapp={}
+        i=0
+        for num in nums:
+            tmp = target - num
+            if tmp in mapp:
+                return (mapp[tmp], i)
+            mapp[num]=i
+            i+=1
         return False
