@@ -1,0 +1,18 @@
+class Solution(object):
+    def twoSum(self, numbers, target):
+        """
+        :type numbers: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        j, k = 0, len(numbers)-1
+        while j<k:
+            summ = numbers[j] + numbers[k]
+            if summ == target:
+                return (j+1, k+1)
+            if summ > target:
+                k-=1
+                continue
+            if summ<target:
+                j+=1
+                continue
