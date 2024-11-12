@@ -1,0 +1,22 @@
+class Solution(object):
+    def groupAnagrams(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """
+        wordDict = {}
+        ret = []
+
+        for string in strs:
+            stringSplit = list(string)
+            stringSplit.sort()
+            key = "".join(stringSplit)
+            if key in wordDict:
+                wordDict[key].append(string)
+            else:
+                wordDict[key] = [string]
+
+        for value in wordDict.values():
+            ret.append(value)
+        
+        return ret
