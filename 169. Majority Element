@@ -1,0 +1,18 @@
+class Solution(object):
+    def majorityElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        lenn = len(nums)
+        mapp={}
+        # Rural Rules we dont use counter 🤡
+        for obj in nums:
+            if obj in mapp:
+                mapp[obj]+=1
+            else:
+                mapp[obj]=1
+        for obj in nums:
+            if mapp[obj]>lenn/2:
+                return obj
+        
